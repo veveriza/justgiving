@@ -45,14 +45,14 @@ public class JustGivingBillingAddress extends JustGivingPage<JustGivingBillingAd
         return "";
     }
 
-    public void setHouseNumber() {
+    public void setHouseNumber(String houseNr) {
         waitForElementToBeVisible(houseNumber);
         houseNumber.click();
-        houseNumber.sendKeys("110");
+        houseNumber.sendKeys(houseNr);
     }
 
-    public void setPostCode() {
-        postCode.sendKeys("SE1 0TA");
+    public void setPostCode(String pstCode) {
+        postCode.sendKeys(pstCode);
     }
 
     public void findAddress() {
@@ -60,10 +60,10 @@ public class JustGivingBillingAddress extends JustGivingPage<JustGivingBillingAd
         waitForElementToBeVisible(manualAddressArea);
     }
 
-    public void setAddressLine1() throws InterruptedException {
+    public void setAddressLine1(String addressLine) throws InterruptedException {
         Select dropDown = new Select(addressLine1);
         addressLine1.click();
-        dropDown.selectByVisibleText("Just Giving Trust Blue Fin Building ");
+        dropDown.selectByVisibleText(addressLine);
     }
 
     public JustGivingReviewAndDonate clickContinue() {

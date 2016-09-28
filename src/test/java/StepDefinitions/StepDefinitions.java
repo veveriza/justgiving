@@ -70,10 +70,10 @@ public class StepDefinitions {
 
     @And("^I enter valid billing address$")
     public void I_enter_valid_billing_address() throws Throwable {
-        justGivingBillingAddress.setHouseNumber();
-        justGivingBillingAddress.setPostCode();
+        justGivingBillingAddress.setHouseNumber("110");
+        justGivingBillingAddress.setPostCode("SE1 0TA");
         justGivingBillingAddress.findAddress();
-        justGivingBillingAddress.setAddressLine1();
+        justGivingBillingAddress.setAddressLine1("Just Giving Trust Blue Fin Building ");
         justGivingReviewAndDonate = justGivingBillingAddress.clickContinue();
     }
 

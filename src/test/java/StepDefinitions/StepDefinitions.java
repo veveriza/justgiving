@@ -20,7 +20,7 @@ import static org.hamcrest.core.Is.is;
 
 
 public class StepDefinitions {
-    private static WebDriver driver;
+    private WebDriver driver;
 
     @Before
     public void beforeScenario() {

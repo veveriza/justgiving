@@ -7,9 +7,9 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import utils.MockDataGenerator;
 
-public class JustGivingIdentity extends JustGivingPage<JustGivingIdentity> {
+public class JustGivingIdentity extends BaseJustGivingPage {
 
-    public JustGivingIdentity(WebDriver driver) {
+    public JustGivingIdentity(Browser driver) {
         super(driver);
     }
 

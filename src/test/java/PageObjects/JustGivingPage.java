@@ -15,13 +15,13 @@ public abstract class JustGivingPage<T> {
     private static final String BASE_URL = "https://www.justgiving.com";
     private static final int LOAD_TIMEOUT = 30;
     private static final int REFRESH_RATE = 2;
-    static WebDriver driver;
+    private final WebDriver driver;
 
     public JustGivingPage(WebDriver driver) {
-        JustGivingPage.driver = driver;
+        this.driver = driver;
     }
 
-    protected static WebDriver getDriver() {
+    protected WebDriver getDriver() {
         return driver;
     }
 

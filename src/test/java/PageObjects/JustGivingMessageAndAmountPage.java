@@ -9,10 +9,10 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 
-public class JustGivingMessageAndAmountPage extends JustGivingPage<JustGivingMessageAndAmountPage> {
-
-    public JustGivingMessageAndAmountPage(WebDriver driver) {
-        super(driver);
+public class JustGivingMessageAndAmountPage implements BaseJustGivingPage {
+    private final Browser driver;
+    public JustGivingMessageAndAmountPage(Browser driver) {
+        this.driver = driver;
     }
 
     @FindBy(id = "MessageAndAmount-fieldset")
@@ -38,7 +38,7 @@ public class JustGivingMessageAndAmountPage extends JustGivingPage<JustGivingMes
     }
 
     public JustGivingMessageAndAmountPage open() {
-        return new JustGivingMessageAndAmountPage(getDriver()).openPage(JustGivingMessageAndAmountPage.class);
+        return driver.open(JustGivingMessageAndAmountPage.class);
     }
 
     public void leaveMessage() {
@@ -50,11 +50,16 @@ public class JustGivingMessageAndAmountPage extends JustGivingPage<JustGivingMes
     }
 
     public JustGivingIdentity clickContinue() {
-        waitForElementToBeVisible(continueButton);
+        driver.waitForElementToBeVisible(continueButton);
         continueButton.click();
-        JustGivingIdentity justGivingIdentity = new JustGivingIdentity(getDriver()).initPage(JustGivingIdentity.class);
-        justGivingIdentity.waitForPageToLoad(justGivingIdentity.getPageLoadCondition());
+        JustGivingIdentity justGivingIdentity = driver.init(JustGivingIdentity.class);
+        driver.waitForPageToLoad(justGivingIdentity.getPageLoadCondition());
         return justGivingIdentity;
+    }
+
+    public void fillTheInfo(){
+        leaveMessage();
+        enterYourName();
     }
 
 
